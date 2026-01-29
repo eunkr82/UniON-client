@@ -1,0 +1,96 @@
+import type { RouteObject } from 'react-router-dom';
+
+import { ROUTE_PATH } from '@/shared/constants/path';
+import AuthLayout from '@/shared/ui/layouts/auth-layout';
+import RootLayout from '@/shared/ui/layouts/root-layout';
+
+export const routes: RouteObject[] = [
+  {
+    element: <RootLayout />,
+    children: [
+      {
+        path: ROUTE_PATH.HOME,
+        lazy: async () => {
+          const m = await import('@/pages/home/home');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MEMBERS,
+        lazy: async () => {
+          const m = await import('@/pages/members/members');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MEMBERS_RECOMMEND,
+        lazy: async () => {
+          const m = await import('@/pages/members-recommend/members-recommend');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MEMBER_PORTFOLIO,
+        lazy: async () => {
+          const m = await import('@/pages/members-portfolio/members-portfolio');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MEMBER_PROFILE,
+        lazy: async () => {
+          const m = await import('@/pages/members-profile/members-profile');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MY_PORTFOLIO,
+        lazy: async () => {
+          const m = await import('@/pages/my-portfolio/my-portfolio');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.MY_PROFILE,
+        lazy: async () => {
+          const m = await import('@/pages/my-profile/my-profile');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.POSTS,
+        lazy: async () => {
+          const m = await import('@/pages/posts/posts');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.POST_DETAIL,
+        lazy: async () => {
+          const m = await import('@/pages/post-detail/post-detail');
+          return { Component: m.default };
+        },
+      },
+    ],
+  },
+
+  {
+    element: <AuthLayout />,
+    children: [
+      {
+        path: ROUTE_PATH.LOGIN,
+        lazy: async () => {
+          const m = await import('@/pages/login/login');
+          return { Component: m.default };
+        },
+      },
+      {
+        path: ROUTE_PATH.SIGN_UP,
+        lazy: async () => {
+          const m = await import('@/pages/signup/signup');
+          return { Component: m.default };
+        },
+      },
+    ],
+  },
+];
