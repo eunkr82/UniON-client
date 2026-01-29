@@ -11,6 +11,6 @@ export const ROUTE_PATH = {
 
   MEMBERS: '/members',
   MEMBERS_RECOMMEND: '/members/recommend',
-  MEMBER_PROFILE: 'members/:memberId/profile',
-  MEMBER_PORTFOLIO: 'members/:memberId/portfolio',
+  MEMBER_PROFILE: '/members/:memberId/profile',
+  MEMBER_PORTFOLIO: '/members/:memberId/portfolio',
 } as const;
