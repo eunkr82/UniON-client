@@ -1,5 +1,5 @@
 export const ROUTE_PATH = {
-  LOGIN: '/login',
+  LOGIN: '/',
   SIGN_UP: '/signup',
 
   POSTS: '/posts',
