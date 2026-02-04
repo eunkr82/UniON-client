@@ -33,15 +33,6 @@ export const patch = async <T, B = unknown>(
   return res.data.data;
 };
 
-export const put = async <T, B = unknown>(
-  url: string,
-  body?: B,
-  config?: AxiosRequestConfig,
-): Promise<T> => {
-  const res = await instance.put<SuccessResponse<T>>(url, body, config);
-  return res.data.data;
-};
-
 export const del = async <T, P = unknown, B = unknown>(
   url: string,
   options?: { params?: P; body?: B; config?: AxiosRequestConfig },
