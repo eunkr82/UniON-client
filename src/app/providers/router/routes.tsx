@@ -9,13 +9,6 @@ export const routes: RouteObject[] = [
     element: <RootLayout />,
     children: [
       {
-        path: ROUTE_PATH.HOME,
-        lazy: async () => {
-          const m = await import('@/pages/home/home');
-          return { Component: m.default };
-        },
-      },
-      {
         path: ROUTE_PATH.MEMBERS,
         lazy: async () => {
           const m = await import('@/pages/members/members');
