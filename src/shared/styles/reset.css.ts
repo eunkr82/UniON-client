@@ -41,11 +41,6 @@ globalStyle('img, picture, video, canvas, svg', {
   maxWidth: '100%',
 });
 
-globalStyle('button', {
-  font: 'inherit',
-  color: 'inherit',
-});
-
 globalStyle('input, textarea, select', {
   font: 'inherit',
   color: 'inherit',
@@ -57,6 +52,8 @@ globalStyle('input, textarea, select', {
 });
 
 globalStyle('button', {
+  font: 'inherit',
+  color: 'inherit',
   background: 'none',
   border: 0,
   padding: 0,
