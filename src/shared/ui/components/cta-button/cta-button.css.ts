@@ -7,23 +7,22 @@ export const base = recipe({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    padding: '1.1rem 20.6rem',
+    padding: '1.1rem 0',
     borderRadius: '10px',
     color: themeVars.color.gray_000,
     ...themeVars.font.body_20sb,
-
-    selectors: {
-      '&:disabled': {
-        backgroundColor: themeVars.color.gray_200,
-        cursor: 'not-allowed',
-      },
-    },
   },
 
   variants: {
     color: {
       primary: {
         backgroundColor: themeVars.color.primary_dark,
+        selectors: {
+          '&:disabled': {
+            backgroundColor: themeVars.color.gray_200,
+            cursor: 'not-allowed',
+          },
+        },
       },
       gray: {
         backgroundColor: themeVars.color.gray_400,
