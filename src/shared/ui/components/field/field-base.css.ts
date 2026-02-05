@@ -14,9 +14,6 @@ export const base = recipe({
     ...themeVars.font.body_18r,
 
     selectors: {
-      '&::placeholder': {
-        color: themeVars.color.gray_400,
-      },
       '&:focus-within': {
         borderColor: themeVars.color.primary,
         color: themeVars.color.gray_900,
@@ -32,4 +29,13 @@ export const base = recipe({
 export const iconSlot = style({
   display: 'flex',
   alignItems: 'center',
+});
+
+export const control = style({
+  width: '100%',
+  selectors: {
+    '&::placeholder': {
+      color: themeVars.color.gray_400,
+    },
+  },
 });

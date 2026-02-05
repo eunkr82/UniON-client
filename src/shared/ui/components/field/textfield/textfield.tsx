@@ -1,13 +1,14 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
 import FieldBase from '../field-base';
+import * as styles from '../field-base.css';
 
 const TextField = (
   props: Omit<ComponentPropsWithoutRef<'input'>, 'children'>,
 ) => {
   return (
     <FieldBase>
-      <input {...props} />
+      <input className={styles.control} {...props} />
     </FieldBase>
   );
 };
