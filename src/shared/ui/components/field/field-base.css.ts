@@ -7,7 +7,7 @@ export const base = recipe({
     display: 'flex',
     width: '100%',
     padding: '1.4rem 2rem',
-    border: `1px solid ${themeVars.color.gray_400}`,
+    border: `1px solid ${themeVars.color.gray_200}`,
     borderRadius: '10px',
     color: themeVars.color.gray_900,
     caretColor: themeVars.color.primary,
