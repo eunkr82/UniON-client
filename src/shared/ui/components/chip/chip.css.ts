@@ -2,7 +2,7 @@ import { themeVars } from '@shared/styles';
 import { style } from '@vanilla-extract/css';
 
 export const chip = style({
-  display: 'flex',
+  display: 'inline-flex',
   justifyContent: 'center',
   alignItems: 'center',
   padding: '0.8rem 2rem',
