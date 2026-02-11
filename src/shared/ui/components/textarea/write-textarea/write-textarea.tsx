@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+
 import * as styles from './write-textarea.css';
 
 type WriteTextareaProps = Omit<
@@ -5,8 +7,10 @@ type WriteTextareaProps = Omit<
   'className'
 >;
 
-const WriteTextarea = (props: WriteTextareaProps) => {
-  return <textarea className={styles.writeTextarea} {...props} />;
-};
+const WriteTextarea = forwardRef<HTMLTextAreaElement, WriteTextareaProps>(
+  (props, ref) => {
+    return <textarea ref={ref} className={styles.writeTextarea} {...props} />;
+  },
+);
 
 export default WriteTextarea;
