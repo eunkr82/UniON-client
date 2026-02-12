@@ -14,7 +14,7 @@ const Chip = ({ children, onRemove }: ChipProps) => {
       {children}
       {onRemove && (
         <button type='button' onClick={onRemove} aria-label='삭제하기'>
-          <XIcon />
+          <XIcon className={styles.icon} />
         </button>
       )}
     </span>

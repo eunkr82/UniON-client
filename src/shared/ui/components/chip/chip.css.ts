@@ -13,3 +13,8 @@ export const chip = style({
   color: themeVars.color.primary_dark,
   ...themeVars.font.body_14m,
 });
+
+export const icon = style({
+  width: '1.9rem',
+  height: '1.9rem',
+});
