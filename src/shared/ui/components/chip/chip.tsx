@@ -1,13 +1,24 @@
+import { XIcon } from '@shared/assets';
 import type { ReactNode } from 'react';
 
 import * as styles from './chip.css';
 
 interface ChipProps {
   children: ReactNode;
+  onRemove?: () => void;
 }
 
-const Chip = ({ children }: ChipProps) => {
-  return <span className={styles.chip}>{children}</span>;
+const Chip = ({ children, onRemove }: ChipProps) => {
+  return (
+    <span className={styles.chip}>
+      {children}
+      {onRemove && (
+        <button type='button' onClick={onRemove} aria-label='삭제하기'>
+          <XIcon />
+        </button>
+      )}
+    </span>
+  );
 };
 
 export default Chip;
