@@ -15,9 +15,9 @@ export const routes: RouteObject[] = [
         },
       },
       {
-        path: ROUTE_PATH.MEMBERS_RECOMMEND,
+        path: ROUTE_PATH.RECOMMEND,
         lazy: async () => {
-          const m = await import('@pages/members-recommend/members-recommend');
+          const m = await import('@pages/recommend/recommend');
           return { Component: m.default };
         },
       },
