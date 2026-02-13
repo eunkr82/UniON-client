@@ -4,7 +4,8 @@ import { NavLink } from 'react-router-dom';
 import * as styles from './header.css';
 
 const NAV_ITEMS = [
-  { to: ROUTE_PATH.POSTS, label: '공고 모아보기 ' },
+  // todo: 랜딩페이지 추가
+  { to: ROUTE_PATH.POSTS, label: '공고 모아보기' },
   { to: ROUTE_PATH.MEMBERS, label: '팀원 모아보기' },
   { to: ROUTE_PATH.RECOMMEND, label: '팀원 추천받기' },
   { to: ROUTE_PATH.MY_PROFILE, label: '마이페이지' },
