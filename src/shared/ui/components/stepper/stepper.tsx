@@ -26,6 +26,7 @@ const Stepper = ({ value, onChange }: StepperProps) => {
         type='button'
         aria-label='감소'
         onClick={handleMinus}
+        disabled={value <= 1}
         className={styles.icon}
       >
         <StepperLeftIcon />
