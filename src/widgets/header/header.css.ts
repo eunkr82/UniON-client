@@ -7,8 +7,7 @@ export const headerContainer = style({
   alignItems: 'center',
   padding: '0 11.8rem',
   gap: '5rem',
-  borderBottom: `1px solid ${themeVars.color.gray_400}`,
-  boxShadow: `0 2px 4px 0 rgba(0, 0, 0, 0.05)`,
+  borderBottom: `1px solid ${themeVars.color.gray_200}`,
 });
 
 export const logoContainer = style({

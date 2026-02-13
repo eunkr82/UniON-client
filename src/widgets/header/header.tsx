@@ -6,7 +6,7 @@ import * as styles from './header.css';
 const NAV_ITEMS = [
   { to: ROUTE_PATH.POSTS, label: '공고 모아보기 ' },
   { to: ROUTE_PATH.MEMBERS, label: '팀원 모아보기' },
-  { to: ROUTE_PATH.MEMBERS_RECOMMEND, label: '팀원 추천받기' },
+  { to: ROUTE_PATH.RECOMMEND, label: '팀원 추천받기' },
   { to: ROUTE_PATH.MY_PROFILE, label: '마이페이지' },
 ];
 
@@ -19,7 +19,6 @@ const Header = () => {
           <NavLink
             key={item.to}
             to={item.to}
-            end={item.to === ROUTE_PATH.MEMBERS}
             className={({ isActive }) => styles.navItem({ active: isActive })}
           >
             {item.label}
