@@ -5,11 +5,13 @@ export const ROUTE_PATH = {
   POSTS: '/posts',
   POST_DETAIL: '/posts/:postId',
 
+  RECOMMEND: '/recommend',
+
   MY_PROFILE: '/me/profile',
   MY_PORTFOLIO: '/me/portfolio',
 
   MEMBERS: '/members',
-  MEMBERS_RECOMMEND: '/members/recommend',
+
   MEMBER_PROFILE: '/members/:memberId/profile',
   MEMBER_PORTFOLIO: '/members/:memberId/portfolio',
 } as const;
