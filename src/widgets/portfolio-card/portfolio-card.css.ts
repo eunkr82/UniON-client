@@ -44,7 +44,6 @@ export const contentContainer = style({
 export const titleContainer = style({
   display: 'flex',
   flexDirection: 'column',
-  width: '100%',
   gap: '0.4rem',
 });
 
@@ -61,6 +60,8 @@ export const summary = style({
 });
 
 export const infoContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
   marginTop: 'auto',
   gap: '0.2rem',
   color: themeVars.color.gray_500,
