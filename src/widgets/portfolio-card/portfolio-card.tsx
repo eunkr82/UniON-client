@@ -20,7 +20,7 @@ const PortfolioCard = ({
   headcount,
 }: PortfolioCardProps) => {
   return (
-    <article className={styles.cardContainer}>
+    <article className={styles.cardContainer} aria-label={title}>
       <div className={styles.imageContainer}>
         {imageUrl ? (
           <img
