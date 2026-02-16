@@ -24,7 +24,7 @@ interface DatePickerProps extends Omit<
   onChange: (nextValue: string) => void;
 }
 
-const DatePicker = ({ value, onChange }: DatePickerProps) => {
+const DatePicker = ({ value, onChange, ...rest }: DatePickerProps) => {
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const digits = digitsOnly(e.target.value);
     onChange(formatYYYYMMDD(digits));
@@ -33,6 +33,7 @@ const DatePicker = ({ value, onChange }: DatePickerProps) => {
   return (
     <FieldBase iconSlot={<DateIcon />}>
       <input
+        {...rest}
         className={styles.control}
         type='text'
         value={value}
