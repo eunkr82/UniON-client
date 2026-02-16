@@ -64,3 +64,7 @@ globalStyle('a', {
   color: 'inherit',
   textDecoration: 'none',
 });
+
+globalStyle('p', {
+  margin: 0,
+});
