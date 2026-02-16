@@ -34,8 +34,10 @@ const DatePicker = ({ value, onChange }: DatePickerProps) => {
     <FieldBase iconSlot={<DateIcon />}>
       <input
         className={styles.control}
+        type='text'
         value={value}
         maxLength={10}
+        inputMode='numeric'
         onChange={handleChange}
         placeholder='YYYY-MM-DD'
       />
