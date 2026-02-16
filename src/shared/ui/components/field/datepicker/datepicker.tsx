@@ -1,5 +1,5 @@
 import { DateIcon } from '@shared/assets';
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ChangeEventHandler, ComponentPropsWithoutRef } from 'react';
 
 import FieldBase from '../field-base';
 import * as styles from '../field-base.css';
@@ -25,7 +25,7 @@ interface DatePickerProps extends Omit<
 }
 
 const DatePicker = ({ value, onChange }: DatePickerProps) => {
-  const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const digits = digitsOnly(e.target.value);
     onChange(formatYYYYMMDD(digits));
   };
