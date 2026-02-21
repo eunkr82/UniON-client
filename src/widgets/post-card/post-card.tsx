@@ -16,7 +16,6 @@ export interface PostCardProps {
   recruits: Recruit[];
   nowCount: number;
   applied: boolean;
-  // onOpenDetail: (postId: number) => void;
   onToggleApply: (postId: number) => void;
 }
 
@@ -37,15 +36,10 @@ const PostCard = ({
   recruits,
   nowCount,
   applied,
-  // onOpenDetail,
   onToggleApply,
 }: PostCardProps) => {
   return (
-    <article
-      className={styles.cardContainer}
-      aria-label={title}
-      // onClick={() => onOpenDetail(postId)}
-    >
+    <article className={styles.cardContainer} aria-label={title}>
       <Link
         to={`/posts/${postId}`}
         aria-label={`${title} 상세 페이지로 이동`}
