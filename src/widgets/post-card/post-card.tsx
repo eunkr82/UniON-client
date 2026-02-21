@@ -68,10 +68,7 @@ const PostCard = ({
       <div className={styles.buttonContainer}>
         <Button
           color={applied ? 'gray' : 'primary'}
-          onClick={(e) => {
-            e.stopPropagation();
-            onToggleApply(postId);
-          }}
+          onClick={() => onToggleApply(postId)}
         >
           {applied ? '지원 취소' : '지원하기'}
         </Button>
