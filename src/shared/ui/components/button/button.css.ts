@@ -14,18 +14,18 @@ export const base = style({
 });
 
 export const button = recipe({
-    base,
-    variants: {
-        color: {
-            primary: {
-                backgroundColor: themeVars.color.primary_dark,
-            },
-            dark: {
-                backgroundColor: themeVars.color.gray_800,
-            },
-            gray: {
-                backgroundColor: themeVars.color.gray_400,
-            },
-        }
-    }
-})
+  base,
+  variants: {
+    color: {
+      primary: {
+        backgroundColor: themeVars.color.primary_dark,
+      },
+      dark: {
+        backgroundColor: themeVars.color.gray_800,
+      },
+      gray: {
+        backgroundColor: themeVars.color.gray_400,
+      },
+    },
+  },
+});
