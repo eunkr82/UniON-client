@@ -1,6 +1,7 @@
 import { TeamIcon } from '@shared/assets';
 import Button from '@shared/ui/components/button/button';
 import Chip from '@shared/ui/components/chip/chip';
+import { Link } from 'react-router-dom';
 
 import * as styles from './post-card.css';
 
@@ -15,7 +16,7 @@ export interface PostCardProps {
   recruits: Recruit[];
   nowCount: number;
   applied: boolean;
-  onOpenDetail: (postId: number) => void;
+  // onOpenDetail: (postId: number) => void;
   onToggleApply: (postId: number) => void;
 }
 
@@ -36,15 +37,20 @@ const PostCard = ({
   recruits,
   nowCount,
   applied,
-  onOpenDetail,
+  // onOpenDetail,
   onToggleApply,
 }: PostCardProps) => {
   return (
     <article
       className={styles.cardContainer}
       aria-label={title}
-      onClick={() => onOpenDetail(postId)}
+      // onClick={() => onOpenDetail(postId)}
     >
+      <Link
+        to={`/posts/${postId}`}
+        aria-label={`${title} 상세 페이지로 이동`}
+        className={styles.overlay}
+      />
       <span className={styles.dday}>D-{dday}</span>
 
       <div className={styles.textContainer}>
@@ -65,15 +71,17 @@ const PostCard = ({
         ))}
       </div>
 
-      <Button
-        color={applied ? 'gray' : 'primary'}
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggleApply(postId);
-        }}
-      >
-        {applied ? '지원 취소' : '지원하기'}
-      </Button>
+      <div className={styles.buttonContainer}>
+        <Button
+          color={applied ? 'gray' : 'primary'}
+          onClick={(e) => {
+            e.stopPropagation();
+            onToggleApply(postId);
+          }}
+        >
+          {applied ? '지원 취소' : '지원하기'}
+        </Button>
+      </div>
     </article>
   );
 };

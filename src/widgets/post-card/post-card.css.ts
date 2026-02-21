@@ -2,12 +2,19 @@ import { themeVars } from '@shared/styles';
 import { style } from '@vanilla-extract/css';
 
 export const cardContainer = style({
+  position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   padding: '2rem',
   gap: '1rem',
   border: `1px solid ${themeVars.color.gray_200}`,
   borderRadius: '10px',
+});
+
+export const overlay = style({
+  position: 'absolute',
+  inset: 0,
+  borderRadius: '14px',
 });
 
 export const dday = style({
@@ -26,6 +33,7 @@ export const roleContainer = style({
   WebkitBoxOrient: 'vertical',
   WebkitLineClamp: 2,
   whiteSpace: 'pre-line',
+  overflow: 'hidden',
 });
 
 export const title = style({
@@ -58,4 +66,9 @@ export const iconContainer = style({
 export const domainContainer = style({
   display: 'flex',
   gap: '0.6rem',
+});
+
+export const buttonContainer = style({
+  position: 'relative',
+  zIndex: 1,
 });
