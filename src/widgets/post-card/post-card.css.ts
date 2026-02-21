@@ -14,7 +14,7 @@ export const cardContainer = style({
 export const overlay = style({
   position: 'absolute',
   inset: 0,
-  borderRadius: '14px',
+  borderRadius: '10px',
 });
 
 export const dday = style({
@@ -29,11 +29,11 @@ export const textContainer = style({
 });
 
 export const roleContainer = style({
-  display: '-webkit-box',
-  WebkitBoxOrient: 'vertical',
-  WebkitLineClamp: 2,
+  // display: '-webkit-box',
+  // WebkitBoxOrient: 'vertical',
+  // WebkitLineClamp: 2,
   whiteSpace: 'pre-line',
-  overflow: 'hidden',
+  // overflow: 'hidden',
 });
 
 export const title = style({
