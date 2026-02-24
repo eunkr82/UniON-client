@@ -18,7 +18,7 @@ export const base = style({
       color: themeVars.color.gray_900,
       outline: 'none',
     },
-    '&[data-open="true"]:focus-visible': {
+    '&[aria-expanded="true"]:focus-visible': {
       borderColor: themeVars.color.primary,
       color: themeVars.color.primary,
     },

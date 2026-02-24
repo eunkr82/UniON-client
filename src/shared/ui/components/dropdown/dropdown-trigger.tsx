@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { useDropdownContext } from './dropdown-context';
 import * as styles from './dropdown-trigger.css';
 
-export interface DropdownTriggerProps {
+interface DropdownTriggerProps {
   label?: ReactNode;
   placeholder?: ReactNode;
 }
