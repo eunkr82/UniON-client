@@ -15,7 +15,7 @@ const DropdownTrigger = ({ label, placeholder }: DropdownTriggerProps) => {
 
   return (
     <button
-      ref={triggerRef as unknown as React.RefObject<HTMLButtonElement>}
+      ref={triggerRef}
       id={triggerId}
       type='button'
       className={styles.base}
