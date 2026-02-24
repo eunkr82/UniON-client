@@ -18,10 +18,6 @@ export const base = recipe({
         borderColor: themeVars.color.primary,
         color: themeVars.color.gray_900,
       },
-      '&[data-open="true"]:focus-within': {
-        borderColor: themeVars.color.primary,
-        color: themeVars.color.primary,
-      },
     },
   },
 });
