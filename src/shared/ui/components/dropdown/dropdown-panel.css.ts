@@ -12,6 +12,7 @@ export const triggerButton = style({
 export const panel = style({
   position: 'absolute',
   zIndex: 1000,
+  minWidth: '36rem',
   marginTop: '0.8rem',
   border: `1px solid ${themeVars.color.gray_200}`,
   borderRadius: '10px',
