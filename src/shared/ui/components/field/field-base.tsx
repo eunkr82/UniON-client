@@ -4,13 +4,12 @@ import * as styles from './field-base.css';
 
 export interface FieldBaseProps {
   children: ReactNode;
-  open?: boolean;
   iconSlot?: ReactNode;
 }
 
-const FieldBase = ({ children, open, iconSlot }: FieldBaseProps) => {
+const FieldBase = ({ children, iconSlot }: FieldBaseProps) => {
   return (
-    <div className={styles.base()} data-open={open ? 'true' : 'false'}>
+    <div className={styles.base()}>
       {children}
       {iconSlot ? <span className={styles.iconSlot}>{iconSlot}</span> : null}
     </div>
