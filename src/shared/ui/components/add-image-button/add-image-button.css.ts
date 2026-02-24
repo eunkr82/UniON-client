@@ -33,6 +33,8 @@ export const addedImageContainer = style({
 });
 
 export const addedImage = style({
+  width: '100%',
+  height: '100%',
   objectFit: 'cover',
 });
 
