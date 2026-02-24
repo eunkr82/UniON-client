@@ -7,7 +7,7 @@ export interface DropdownContextValue {
   close: () => void;
   triggerId: string;
   panelId: string;
-  triggerRef: RefObject<HTMLElement | null>;
+  triggerRef: RefObject<HTMLButtonElement | null>;
 }
 
 const DropdownContext = createContext<DropdownContextValue | null>(null);
