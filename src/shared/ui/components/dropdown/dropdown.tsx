@@ -33,17 +33,22 @@ const Dropdown = ({
   );
 
   const close = useCallback(() => setOpen(false), [setOpen]);
+  const toggle = useCallback(() => setOpen(!openValue), [setOpen, openValue]);
+
+  const triggerId = useMemo(() => `dropdown-trigger-${reactId}`, [reactId]);
+  const panelId = useMemo(() => `dropdown-panel-${reactId}`, [reactId]);
 
   const contextValue = useMemo(
     () => ({
       open: openValue,
       setOpen,
       close,
-      triggerId: `dropdown-trigger-${reactId}`,
-      panelId: `dropdown-panel-${reactId}`,
+      toggle,
+      triggerId,
+      panelId,
       triggerRef,
     }),
-    [close, openValue, reactId, setOpen],
+    [close, openValue, panelId, setOpen, toggle, triggerId],
   );
 
   return (
