@@ -1,10 +1,11 @@
 import type { RefObject } from 'react';
 import { createContext, useContext } from 'react';
 
-export interface DropdownContextValue {
+interface DropdownContextValue {
   open: boolean;
   setOpen: (next: boolean) => void;
   close: () => void;
+  toggle: () => void;
   triggerId: string;
   panelId: string;
   triggerRef: RefObject<HTMLButtonElement | null>;
