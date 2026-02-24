@@ -10,8 +10,7 @@ interface DropdownTriggerProps {
 }
 
 const DropdownTrigger = ({ label, placeholder }: DropdownTriggerProps) => {
-  const { open, setOpen, triggerId, panelId, triggerRef } =
-    useDropdownContext();
+  const { open, toggle, triggerId, panelId, triggerRef } = useDropdownContext();
 
   return (
     <button
@@ -22,7 +21,7 @@ const DropdownTrigger = ({ label, placeholder }: DropdownTriggerProps) => {
       aria-haspopup='listbox'
       aria-expanded={open}
       aria-controls={panelId}
-      onClick={() => setOpen(!open)}
+      onClick={toggle}
     >
       <span className={label ? styles.label : styles.placeholder}>
         {label || placeholder}
