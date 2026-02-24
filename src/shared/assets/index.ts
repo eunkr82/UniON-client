@@ -1,3 +1,4 @@
+export { default as ArrowIcon } from './icons/icn-arrow.svg?react';
 export { default as CheckIcon } from './icons/icn-check.svg?react';
 export { default as DateIcon } from './icons/icn-date.svg?react';
 export { default as StepperLeftIcon } from './icons/icn-stepperLeft.svg?react';
