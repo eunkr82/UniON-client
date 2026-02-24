@@ -57,7 +57,13 @@ const AddImageButton = ({
           </div>
           <div className={styles.fileNameContainer}>
             <p>{fileName}</p>
-            <XIcon onClick={onRemove} />
+            <button
+              type='button'
+              onClick={onRemove}
+              aria-label='첨부 이미지 삭제'
+            >
+              <XIcon />
+            </button>
           </div>
         </div>
       ) : null}
