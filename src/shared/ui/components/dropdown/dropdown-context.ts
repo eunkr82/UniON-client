@@ -13,7 +13,7 @@ interface DropdownContextValue {
 
 const DropdownContext = createContext<DropdownContextValue | null>(null);
 
-export const useDropdownContext = () => {
+export const useDropdownContext = (): DropdownContextValue => {
   const context = useContext(DropdownContext);
   if (!context) {
     throw new Error(

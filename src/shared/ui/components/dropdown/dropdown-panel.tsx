@@ -21,6 +21,7 @@ const DropdownPanel = ({ children }: DropdownPanelProps) => {
   const { open, close, panelId, triggerRef } = useDropdownContext();
   const panelRef = useRef<HTMLDivElement | null>(null);
   const [pos, setPos] = useState({ top: 0, left: 0 });
+  const prevOpenRef = useRef(open);
 
   // 위치 계산
   useLayoutEffect(() => {
@@ -76,7 +77,10 @@ const DropdownPanel = ({ children }: DropdownPanelProps) => {
 
   // 포커스 복귀
   useEffect(() => {
-    if (!open) triggerRef.current?.focus();
+    if (prevOpenRef.current && !open) {
+      triggerRef.current?.focus();
+    }
+    prevOpenRef.current = open;
   }, [open, triggerRef]);
 
   if (!open) return null;
@@ -85,7 +89,6 @@ const DropdownPanel = ({ children }: DropdownPanelProps) => {
     <div
       ref={panelRef}
       id={panelId}
-      role='listbox'
       className={styles.panel}
       style={{ top: pos.top, left: pos.left }}
     >

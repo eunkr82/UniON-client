@@ -18,6 +18,10 @@ export const base = style({
       color: themeVars.color.gray_900,
       outline: 'none',
     },
+    '&[aria-expanded="true"]': {
+      borderColor: themeVars.color.primary,
+      color: themeVars.color.primary,
+    },
     '&[aria-expanded="true"]:focus-visible': {
       borderColor: themeVars.color.primary,
       color: themeVars.color.primary,

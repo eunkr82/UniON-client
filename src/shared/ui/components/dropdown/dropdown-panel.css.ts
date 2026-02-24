@@ -1,18 +1,11 @@
 import { themeVars } from '@shared/styles';
 import { style } from '@vanilla-extract/css';
 
-export const triggerButton = style({
-  border: 0,
-  padding: 0,
-  background: 'transparent',
-  width: '100%',
-  cursor: 'pointer',
-});
-
 export const panel = style({
   position: 'absolute',
   zIndex: 1000,
-  minWidth: '36rem',
+  minWidth: '24rem',
+  maxHeight: '30rem',
   marginTop: '0.8rem',
   border: `1px solid ${themeVars.color.gray_200}`,
   borderRadius: '10px',
