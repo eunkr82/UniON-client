@@ -56,7 +56,7 @@ const AddImageButton = ({
             />
           </div>
           <div className={styles.fileNameContainer}>
-            <p>{fileName}</p>
+            <p className={styles.fileNameText}>{fileName}</p>
             <button
               type='button'
               onClick={onRemove}

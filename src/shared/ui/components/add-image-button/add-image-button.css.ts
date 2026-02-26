@@ -41,7 +41,16 @@ export const addedImage = style({
 export const fileNameContainer = style({
   display: 'flex',
   flexDirection: 'row',
+  alignItems: 'center',
+  minWidth: '0',
   gap: '1rem',
   color: themeVars.color.gray_400,
   ...themeVars.font.body_14r,
+});
+
+export const fileNameText = style({
+  minWidth: 0,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  whiteSpace: 'nowrap',
 });
