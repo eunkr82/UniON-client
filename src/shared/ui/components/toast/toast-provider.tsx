@@ -1,5 +1,5 @@
 import { AlertIcon, CheckIcon } from '@shared/assets';
-import { type ReactNode, useRef, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 import Toast from './toast';
 import { type ToastActions, ToastContext } from './toast-context';
@@ -29,6 +29,10 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     window.clearTimeout(timerRef.current);
     timerRef.current = null;
   };
+
+  useEffect(() => {
+    return () => clearTimer();
+  }, []);
 
   const show = (type: ToastType, message: string) => {
     clearTimer();
