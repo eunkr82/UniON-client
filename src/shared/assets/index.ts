@@ -1,3 +1,4 @@
+export { default as AlertIcon } from './icons/icn-alert.svg?react';
 export { default as ArrowIcon } from './icons/icn-arrow.svg?react';
 export { default as CheckIcon } from './icons/icn-check.svg?react';
 export { default as DateIcon } from './icons/icn-date.svg?react';
