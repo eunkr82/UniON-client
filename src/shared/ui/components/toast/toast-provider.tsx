@@ -1,5 +1,12 @@
 import { AlertIcon, CheckIcon } from '@shared/assets';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import {
+  type ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 
 import Toast from './toast';
 import { type ToastActions, ToastContext } from './toast-context';
@@ -34,7 +41,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
     return () => clearTimer();
   }, []);
 
-  const show = (type: ToastType, message: string) => {
+  const show = useCallback((type: ToastType, message: string) => {
     clearTimer();
     setToast({ open: true, type, message });
 
@@ -42,12 +49,15 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
       setToast((prev) => ({ ...prev, open: false }));
       timerRef.current = null;
     }, TOAST_DURATION_MS);
-  };
+  }, []);
 
-  const value: ToastActions = {
-    success: (message) => show('success', message),
-    error: (message) => show('error', message),
-  };
+  const value: ToastActions = useMemo(
+    () => ({
+      success: (message) => show('success', message),
+      error: (message) => show('error', message),
+    }),
+    [show],
+  );
 
   const icon = toast.type === 'success' ? <CheckIcon /> : <AlertIcon />;
 
