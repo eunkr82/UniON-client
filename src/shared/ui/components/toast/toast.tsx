@@ -11,7 +11,7 @@ const Toast = ({ icon, message }: ToastViewProps) => {
   return (
     <div className={styles.toastViewport}>
       <div className={styles.toastContainer}>
-        {icon ? <span className={styles.icon}>{icon}</span> : null}
+        <span className={styles.icon}>{icon}</span>
         <p className={styles.message}>{message}</p>
       </div>
     </div>
