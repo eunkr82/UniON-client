@@ -34,6 +34,11 @@ export const font = {
     fontWeight: typography.fontWeight.semibold,
     lineHeight: typography.lineHeight[120],
   },
+  body_18r: {
+    fontSize: typography.fontSize[18],
+    fontWeight: typography.fontWeight.regular,
+    lineHeight: typography.lineHeight[120],
+  },
   body_16sb: {
     fontSize: typography.fontSize[16],
     fontWeight: typography.fontWeight.semibold,

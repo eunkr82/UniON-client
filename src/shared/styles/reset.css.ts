@@ -41,12 +41,19 @@ globalStyle('img, picture, video, canvas, svg', {
   maxWidth: '100%',
 });
 
-globalStyle('input, button, textarea, select', {
+globalStyle('input, textarea, select', {
   font: 'inherit',
   color: 'inherit',
+  appearance: 'none',
+  WebkitAppearance: 'none',
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
 });
 
 globalStyle('button', {
+  font: 'inherit',
+  color: 'inherit',
   background: 'none',
   border: 0,
   padding: 0,
@@ -58,7 +65,6 @@ globalStyle('a', {
   textDecoration: 'none',
 });
 
-globalStyle(':focus-visible', {
-  outline: '2px solid currentColor',
-  outlineOffset: '2px',
+globalStyle('p', {
+  margin: 0,
 });
