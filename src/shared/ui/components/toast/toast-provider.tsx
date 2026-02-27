@@ -1,12 +1,5 @@
 import { AlertIcon, CheckIcon } from '@shared/assets';
-import {
-  type ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { type ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 
 import Toast from './toast';
 import { type ToastActions, ToastContext } from './toast-context';
@@ -31,32 +24,37 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [toast, setToast] = useState<ToastState>(initialState);
   const timerRef = useRef<number | null>(null);
 
-  const clearTimer = () => {
+  const clearTimer = useCallback(() => {
     if (timerRef.current === null) return;
     window.clearTimeout(timerRef.current);
     timerRef.current = null;
-  };
-
-  useEffect(() => {
-    return () => clearTimer();
   }, []);
 
-  const show = useCallback((type: ToastType, message: string) => {
-    clearTimer();
-    setToast({ open: true, type, message });
+  const show = useCallback(
+    (type: ToastType, message: string) => {
+      clearTimer();
+      setToast({ open: true, type, message });
 
-    timerRef.current = window.setTimeout(() => {
-      setToast((prev) => ({ ...prev, open: false }));
-      timerRef.current = null;
-    }, TOAST_DURATION_MS);
-  }, []);
+      timerRef.current = window.setTimeout(() => {
+        setToast((prev) => ({ ...prev, open: false }));
+        timerRef.current = null;
+      }, TOAST_DURATION_MS);
+    },
+    [clearTimer],
+  );
 
-  const value: ToastActions = useMemo(
-    () => ({
-      success: (message) => show('success', message),
-      error: (message) => show('error', message),
-    }),
+  const success = useCallback(
+    (message: string) => show('success', message),
     [show],
+  );
+  const error = useCallback(
+    (message: string) => show('error', message),
+    [show],
+  );
+
+  const value = useMemo<ToastActions>(
+    () => ({ success, error }),
+    [success, error],
   );
 
   const icon = toast.type === 'success' ? <CheckIcon /> : <AlertIcon />;
