@@ -1,5 +1,31 @@
 ## 🏫 대학생을 위한 팀매칭 플랫폼, UniON
-대학생을 위한 팀매칭 플랫폼, UniON의 프론트엔드 레포지토리입니다.
+> UniON은 대학생의 팀빌딩 경험을 개선하기 위해 만든 웹 서비스입니다.
+공모전, 해커톤, 사이드 프로젝트 등 팀이 필요한 순간, 공고를 작성하면
+AI가 공고에 적합한 팀원을 자동으로 추천해줍니다.
+
+**대학생을 위한 팀매칭 플랫폼, UniON의 프론트엔드 레포지토리입니다.**
+
+<br/>
+
+🌐 **배포 링크** | https://match-union.vercel.app/ 
+<br/>
+🔧 **백엔드 레포** | https://github.com/2025-TEAM-LGTM/union-back 
+<br/>
+
+---
+ 
+## 주요 기능
+ 
+| 기능 | 설명 |
+|---|---|
+| 공고 작성 | 모집 분야, 역할, 팀 문화, 성향 등을 입력해 공고를 등록합니다. |
+| 팀원 추천받기 | 작성한 공고를 기반으로 AI가 적합한 팀원을 추천합니다. |
+| 공고 모아보기 | 등록된 공고를 탐색하고, 관심 있는 팀에 지원할 수 있습니다. |
+| 팀원 모아보기 | 역할 / 스킬 / 성향 필터로 원하는 팀원을 직접 탐색합니다. |
+| 포트폴리오 | STAR 형식으로 프로젝트 경험을 작성하고 프로필에 등록합니다. |
+ 
+---
+ 
 
 <br/>
 
@@ -19,6 +45,112 @@
 | **Formatting**              | ![ESLint](https://img.shields.io/badge/ESLint-4B3263?logo=eslint&logoColor=white&style=for-the-badge) ![Prettier](https://img.shields.io/badge/Prettier-1A2C34?logo=prettier&logoColor=F7BA3E&style=for-the-badge)                                                                                          
 
 <br/>
+
+---
+ 
+## 시작하기
+ 
+### 사전 요구사항
+ 
+- Node.js 18+
+- pnpm (설치 전이라면 `npm install -g pnpm`으로 설치합니다.)
+### 설치 및 실행
+ 
+```bash
+# 1. 레포지토리 클론
+git clone <!-- 레포지토리 URL -->
+cd <!-- 프로젝트 폴더명 -->
+ 
+# 2. 의존성 설치
+pnpm install
+ 
+# 3. 환경 변수 설정
+cp .env.example .env
+# .env 파일을 열어 아래 값을 입력합니다
+ 
+# 4. 개발 서버 실행
+pnpm dev
+```
+ 
+브라우저에서 `http://localhost:5173`으로 접속합니다.
+ 
+### 환경 변수
+ 
+`.env` 파일을 프로젝트 루트에 생성하고 아래 내용을 입력합니다.
+ 
+```env
+VITE_API_BASE_URL=https://union-back.com/
+```
+ 
+### 빌드
+ 
+```bash
+# 프로덕션 빌드
+pnpm build
+ 
+# 빌드 결과 로컬 미리보기
+pnpm preview
+```
+ 
+빌드 결과물은 `dist/` 디렉토리에 생성됩니다.
+ 
+---
+ 
+## 프로젝트 구조
+ 
+**Feature-Sliced Design(FSD)** 아키텍처를 기반으로 구성했습니다.
+레이어 간 단방향 의존성을 유지해 관심사를 명확히 분리합니다.
+ 
+```
+src/
+├── shared/        # 어느 레이어에서도 참조 가능한 공통 코드
+│   ├── api/       # axios instance, http 헬퍼, S3 이미지 업로드
+│   ├── constants/ # 쿼리키, 라우트 경로, 환경변수
+│   ├── ui/        # Button, Dropdown, Toast 등 공통 컴포넌트
+│   └── utils/     # 토큰, 퍼스널리티, 날짜 등 유틸
+│
+├── entities/      # 도메인 단위 API, 타입, 모델
+│   ├── auth/
+│   ├── posts/
+│   ├── members/
+│   ├── portfolio-form/
+│   └── ...
+│
+├── features/      # 비즈니스 로직 (폼 유효성 검사, 필터 등)
+│
+├── widgets/       # 여러 entity/feature를 조합한 UI 블록
+│
+└── pages/         # 라우트 단위 페이지 컴포넌트
+    ├── login/
+    ├── posts/
+    ├── post-details/
+    ├── recommend/
+    └── ...
+```
+ 
+---
+ 
+## 백엔드 연동
+ 
+프론트엔드는 배포된 백엔드 서버와 연동됩니다.
+로컬 환경에서 백엔드를 직접 실행하려면 백엔드 레포지토리의 README를 참고하세요.
+ 
+- **REST API**: Axios 기반, `VITE_API_BASE_URL` 환경 변수로 서버 주소 관리
+- **인증**: JWT 방식 (액세스 토큰은 메모리, 리프레시 토큰은 HttpOnly 쿠키)
+- **이미지 업로드**: AWS S3 Presigned URL 방식으로 클라이언트에서 직접 업로드
+---
+ 
+## 테스트 시나리오
+ 
+별도의 자동화 테스트는 없으며, 아래 흐름으로 주요 기능을 검증할 수 있습니다.
+ 
+1. 회원가입 → 로그인
+2. 공고 작성 → 수정 → 삭제
+3. 팀원 추천받기 페이지에서 내 공고 기반 추천 결과 확인
+4. 공고 모아보기 필터링 및 지원하기
+5. 포트폴리오 작성 → 수정 → 삭제
+6. 프로필 조회 및 수정
+---
 
 ## 🗂️ Convention
 
@@ -245,4 +377,16 @@ const checkIsUser = ({ userName, userBirth }: UserDataTypes) => { ... }
 14) content `-내용--`
 
 </details>
+
+---
+
+## 사용한 오픈소스
+ 
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [TanStack Query](https://tanstack.com/query/latest)
+- [Vanilla Extract](https://vanilla-extract.style/)
+- [Axios](https://axios-http.com/)
+- [React Router](https://reactrouter.com/)
 
