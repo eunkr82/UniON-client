@@ -378,15 +378,4 @@ const checkIsUser = ({ userName, userBirth }: UserDataTypes) => { ... }
 
 </details>
 
----
-
-## 사용한 오픈소스
- 
-- [React](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vitejs.dev/)
-- [TanStack Query](https://tanstack.com/query/latest)
-- [Vanilla Extract](https://vanilla-extract.style/)
-- [Axios](https://axios-http.com/)
-- [React Router](https://reactrouter.com/)
 
